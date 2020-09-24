@@ -24,7 +24,7 @@
     commit: true,
 
     // Set up a payment
-/*    payment: function(data, actions) {
+    payment: function(data, actions) {
       return actions.payment.create({
         
         redirect_urls:{
@@ -38,40 +38,43 @@
           }
         }]
       });
-    },*/
+    },
 
     // Set up a payment
-payment: function(data, actions) {
-  return actions.payment.create({
-     redirect_urls:{
-          return_url:'http://paypaltest.ets/execute',
+  /*payment: function(data, actions) {
+    return actions.payment.create({
+       redirect_urls:{
+            return_url:'http://paypaltest.ets/execute',
+          },
+      transactions: [{
+        amount: {
+          total: '100.00',
+          currency: 'USD',
+          details: {
+            subtotal: '100.00'
+          }
         },
-    transactions: [{
-      amount: {
-        total: '100.00',
-        currency: 'USD'
-      },
-      description: 'The payment transaction description.',
-      custom: '90048630024435',
-      //invoice_number: '12345', Insert a unique invoice number
-      payment_options: {
-        allowed_payment_method: 'INSTANT_FUNDING_SOURCE'
-      },
-      soft_descriptor: 'ECHI5786786',
-      item_list: {
-        items: [
-        {
-          name: 'Trademark application',
-          description: 'Trademark application.',
-          quantity: '1',
-          price: '100',
-          currency: 'USD'
-        }],
-      }
-    }],
-    note_to_payer: 'Contact us for any questions on your order.'
-  });
-},
+        description: 'The payment transaction description.',
+        custom: '90048630024435',
+        //invoice_number: '12345', Insert a unique invoice number
+        payment_options: {
+          allowed_payment_method: 'INSTANT_FUNDING_SOURCE'
+        },
+        soft_descriptor: 'ECHI5786786',
+        item_list: {
+          items: [
+          {
+            name: 'Trademark application',
+            description: 'Trademark application',
+            quantity: '1',
+            price: '100',
+            currency: 'USD'
+          }],
+        }
+      }],
+      note_to_payer: 'Contact us for any questions on your order.'
+    });
+  },*/
     // Execute the payment
     onAuthorize: function(data, actions) {
       return actions.redirect();

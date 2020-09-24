@@ -26,7 +26,8 @@ class PaymentControler extends Controller
 {
      
 
-    public function execute(Request $request){
+    public function execute(Request $request)
+    {
       	$apiContext = new \PayPal\Rest\ApiContext(
 		  new \PayPal\Auth\OAuthTokenCredential(
 		    'ASz2aeWWeLH4wAmWd1sM1JRuvtq3JM5fSMbJwk4jERuv2jQpL93aSM6OszArElh46x-xeRegtcuinqkX',
@@ -44,13 +45,12 @@ class PaymentControler extends Controller
 		$details = new Details();
 
 		$details
-        ->setSubtotal(21);
+        ->setSubtotal(100);
 
 
 	    $amount->setCurrency('USD');
-	    $amount->setTotal(21);
+	    $amount->setTotal(100);
 	    $amount->setDetails($details);
-
 
 	     $item_1 = new Item();
 
@@ -58,7 +58,7 @@ class PaymentControler extends Controller
         /** item name **/
             ->setCurrency('USD')
             ->setQuantity(1)
-            ->setPrice(21);
+            ->setPrice(100);
         /** unit price **/
 
         $item_list = new ItemList();

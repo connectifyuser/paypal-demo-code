@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/paypaldemo', 'HomeController@paypaldemo')->name('paypaldemo');
+Route::get('/createorder', 'HomeController@createOrder')->name('createorder');
 
-Route::get('/execute', 'PaymentControler@execute')->name('execute');
+//Route::get('/execute', 'PaymentControler@execute')->name('execute');
+Route::get('/{payerid}/{paymentid}/capture', 'HomeController@executePayment')->name('execute');
 	
 Route::get('/', function () {
     return view('welcome');
